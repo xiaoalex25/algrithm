@@ -1,4 +1,4 @@
-package com.xiao.string;
+package com.xiao.easy.string;
 
 import org.junit.Assert;
 import org.junit.Test;

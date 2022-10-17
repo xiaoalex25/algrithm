@@ -1,4 +1,4 @@
-package com.xiao.array;
+package com.xiao.easy.array;
 
 import org.junit.Assert;
 import org.junit.Test;
