@@ -1,23 +1,21 @@
 package com.xiao.array;
 
-import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import sun.java2d.pipe.AAShapePipe;
 
 import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(value = Parameterized.class)
 public class YangHuiTriangleTest {
 
-    private Integer input;
-    private List<List<Integer>> expected;
+    private int input;
+    private int[][] expected;
 
-    public YangHuiTriangleTest(Integer input, List<List<Integer>> expected) {
+    public YangHuiTriangleTest(int input, int[][] expected) {
         this.input = input;
         this.expected = expected;
     }
@@ -25,21 +23,21 @@ public class YangHuiTriangleTest {
     @Parameterized.Parameters
     public static Collection getParameters() {
         return Arrays.asList(new Object[][]{
-                {5, Arrays.asList(new Integer[][]{
-                        {1},
-                        {1,1},
-                        {1,2,1},
-                        {1,3,3,1},
-                        {1,4,6,4,1}
-                })},
-                {1, Arrays.asList(new Integer[][]{
-                        {1}
-                })}
+                {5, new int[][]{
+                    {1},
+                    {1,1},
+                    {1,2,1},
+                    {1,3,3,1},
+                    {1,4,6,4,1}
+                }},
+                {1, new int[][]{
+                    {1}
+                }}
         });
     }
 
     @Test
     public void generateTest() {
-        assertThat(expected, contains(YangHuiTriangle.generate(input).toArray()));
+        assertThat(expected, equalTo(YangHuiTriangle.generate(input)));
     }
 }
